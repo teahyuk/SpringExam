@@ -1,4 +1,4 @@
-package com.teahyuk.webservice;
+package com.teahyuk.demo;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

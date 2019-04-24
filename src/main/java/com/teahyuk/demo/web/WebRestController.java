@@ -1,4 +1,4 @@
-package com.teahyuk.webservice.web;
+package com.teahyuk.demo.web;
 
 import org.springframework.web.bind.annotation.*;
 
@@ -7,6 +7,6 @@ public class WebRestController {
 
 	@GetMapping("/hello")
 	public String hello() {
-		return "HelloWorld";
+		return "HelloWorldff";
 	}
 }
