@@ -13,13 +13,12 @@ cache:
 
 script: "./gradlew clean build"
 
-#메일 알림
-notifications:
-  email:
-    recipients:
-    - jtaeh57@gmail.com
-
 #aws-deploy
+before_deploy:
+  - zip -r SpringExam *
+  - mkdir -p deploy
+  - mv SpringExam.zip deploy/SpringExam.zip
+
 deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY
@@ -28,7 +27,14 @@ deploy:
     region: ap-northeast-2
     skip_cleanup: true
     acl: public_read
+    local_dir: deploy
     wait-until-deployed: true
     on:
       repo: teahyuk/SpringExam
       branch: master
+
+#메일 알림
+notifications:
+  email:
+    recipients:
+    - jtaeh57@gmail.com
