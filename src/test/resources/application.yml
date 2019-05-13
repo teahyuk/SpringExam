@@ -5,26 +5,5 @@ spring:
 ---
 spring:
   profiles: local
-  datasource:
-    data: classpath:data-h2.sql
   jpa:
     show-sql: true
-    hibernate:
-      ddl-auto: create-drop
-  h2:
-    console:
-      enagled: true
-
----
-spring.profiles: set1
-spring.profiles.include: real-db
-
-server:
-  port: 8081
-
----
-spring.profiles: set2
-spring.profiles.include: real-db
-
-server:
-  port: 8082
