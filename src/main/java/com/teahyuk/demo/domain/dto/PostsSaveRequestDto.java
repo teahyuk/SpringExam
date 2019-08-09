@@ -1,21 +1,16 @@
 package com.teahyuk.demo.domain.dto;
 
 import com.teahyuk.demo.domain.posts.Posts;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
-@NoArgsConstructor
 public class PostsSaveRequestDto {
 
 	private String title;
 	private String content;
 	private String author;
 
-	@Builder
+	public PostsSaveRequestDto() {
+	}
+
 	public PostsSaveRequestDto(String title, String content, String author) {
 		this.title = title;
 		this.content = content;
@@ -23,10 +18,30 @@ public class PostsSaveRequestDto {
 	}
 
 	public Posts toEntity(){
-		return Posts.builder()
-				.title(title)
-				.content(content)
-				.author(author)
-				.build();
+		return new Posts(title, content, author);
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 }

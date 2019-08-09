@@ -33,11 +33,10 @@ public class PostsRepositoryTest {
 	@Test
 	public void 게시글저장_불러오기() {
 		//given
-		postsRepository.save(Posts.builder()
-				.title("테스트 게시글")
-				.content("테스트 본문")
-				.author("jojoldu@gmail.com")
-				.build());
+		postsRepository.save(new Posts(
+				"테스트 게시글",
+				"테스트 본문",
+				"jtaeh57@gmail.com"));
 
 		//when
 		List<Posts> postsList = postsRepository.findAll();
@@ -52,11 +51,10 @@ public class PostsRepositoryTest {
 	public void BaseTimeEntity_등록(){
 		//given
 		LocalDateTime now = LocalDateTime.now();
-		postsRepository.save(Posts.builder()
-				.title("테스트 게시글")
-				.content("테스트 본문")
-				.author("jojoldu@gmail.com")
-				.build());
+		postsRepository.save(new Posts(
+				"테스트 게시글",
+				"테스트 본문",
+				"jojoldu@gmail.com"));
 		//when
 		List<Posts> postsList = postsRepository.findAll();
 

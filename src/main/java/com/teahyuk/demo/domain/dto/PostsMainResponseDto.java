@@ -1,16 +1,11 @@
 package com.teahyuk.demo.domain.dto;
 
 import com.teahyuk.demo.domain.posts.Posts;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
-@Getter
 public class PostsMainResponseDto {
 	private Long id;
 	private String title;
@@ -44,5 +39,21 @@ public class PostsMainResponseDto {
 
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 		return formatter.format(localDateTime);
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public String getModifiedDate() {
+		return modifiedDate;
 	}
 }

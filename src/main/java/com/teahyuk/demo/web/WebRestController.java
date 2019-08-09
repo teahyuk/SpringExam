@@ -2,18 +2,21 @@ package com.teahyuk.demo.web;
 
 import com.teahyuk.demo.domain.dto.PostsSaveRequestDto;
 import com.teahyuk.demo.service.PostsService;
-import lombok.AllArgsConstructor;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 
 @RestController
-@AllArgsConstructor
 public class WebRestController {
 
 	private PostsService postsService;
 	private Environment env;
+
+	public WebRestController(PostsService postsService, Environment env) {
+		this.postsService = postsService;
+		this.env = env;
+	}
 
 	@GetMapping("/hello")
 	public String hello() {
